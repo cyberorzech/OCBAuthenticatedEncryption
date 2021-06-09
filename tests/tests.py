@@ -3,10 +3,20 @@ import pytest
 from src.associated_data_hash import *
 
 
-class TestClass:
-    def test_hash_associated_data(self):
-        print(type(hash(1, 4)))
-        assert 1 == 1
+class TestAssociated_Data_Hash:
+    def test_hash_when_A_is_null(self):
+        K = BitArray(
+            bin="1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100"
+        )
+        A = BitArray(bin="")
+        zeros128 = str()
+        ones128 = str()
+        for i in range(0, 128):
+            zeros128 += "0"
+        for i in range(0, 128):
+            ones128 += "1"
+        assert hash(K, A) == BitArray(bin=zeros128)
+        assert hash(K, A) != BitArray(bin=ones128)
 
     # def test_one(self):
     #     x = "this"
