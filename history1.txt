@@ -1,0 +1,16 @@
+ 1110  python -m coverage run tests/tests.py
+ 1111  pytest
+ 1112  pytest tests/tests.py
+ 1113  man pytest
+ 1114  coverage run -m pytest tests/tests.py
+ 1115  coverage report -m
+ 1116  clear
+ 1117  cd tests
+ 1118  coverage run -m pytest tests.py --source=.
+ 1119  coverage run --source=. -m pytest tests.py
+ 1120  coverage --source=. report
+ 1121  coverage report --source=.
+ 1122  coverage report
+ 1123  coverage report -m
+ 1124  cd ..
+ 1125  history
