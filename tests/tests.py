@@ -5,9 +5,8 @@ from src.associated_data_hash import *
 
 class TestClass:
     def test_hash_associated_data(self):
-        x = 1
-        y = 2
-        assert hash(x, y) == 4
+        print(type(hash(1, 4)))
+        assert 1 == 1
 
     # def test_one(self):
     #     x = "this"

@@ -1,6 +1,9 @@
+from bitstring import BitStream, BitArray
+
 # Inputs: K - string of KEYLEN bits (key), A - string of any length (associated data)
 def hash(K, A):
-    return K * A
+    hashResult = BitArray(bin="0011 00")
+    return hashResult
 
 
 def main():
