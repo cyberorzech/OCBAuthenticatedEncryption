@@ -3,6 +3,7 @@ import base64
 from src.logger import *
 from src.associated_data_hash import *
 from src.aes import *
+from src.bit_operations import *
 
 DEBUG = 10
 INFO = 20

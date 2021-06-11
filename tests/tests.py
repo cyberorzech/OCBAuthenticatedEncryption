@@ -22,6 +22,16 @@ class TestBit_Operations:
         assert ntz(128) == 7
         assert ntz(256) != 7
 
+    # bitwise xor has two available functions
+    def test_strxor(self):
+        s = "101"
+        t = "100"
+        assert isinstance(strxor(s, t), str)
+
+    def test_bytes_xor(self):
+        y = bytes_xor(bytes("101", "utf-8"), bytes("100", "utf-8"))
+        assert isinstance(y, bytes)
+
 
 class TestAssociated_Data_Hash:
     def test_hash_when_A_is_null(self):
