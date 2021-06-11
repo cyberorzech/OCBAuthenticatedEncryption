@@ -11,6 +11,7 @@ packaging==20.9
 pathspec==0.8.1
 pluggy==0.13.1
 py==1.10.0
+pycryptodome==3.10.1
 pyparsing==2.4.7
 pytest==6.2.4
 regex==2021.4.4
