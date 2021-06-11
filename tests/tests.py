@@ -35,7 +35,6 @@ class TestAES:
         decrypted = cipher.decrypt(encrypted)
         assert decrypted == messageToEncrypt
         assert messageToEncrypt != encryptedString
-        
 
     # def test_one(self):
     #     x = "this"
