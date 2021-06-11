@@ -9,7 +9,7 @@ class TestBit_Operations:
     def test_zeros_with_invalid_arg(self):
         with pytest.raises(ValueError) as valinfo:
             zeros(0)
-        assert "n argument should be greater than 0" in str(valinfo.value)
+        assert "n argument must be greater than 0" in str(valinfo.value)
 
     def test_zeros_with_valid_arg(self):
         n = 128
@@ -17,6 +17,10 @@ class TestBit_Operations:
         assert len(x) == n
         for i in range(0, len(x)):
             assert x[i] == "0"
+
+    def test_ntz(self):
+        assert ntz(128) == 7
+        assert ntz(256) != 7
 
 
 class TestAssociated_Data_Hash:
