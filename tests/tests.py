@@ -32,6 +32,47 @@ class TestBit_Operations:
         y = bytes_xor(bytes("101", "utf-8"), bytes("100", "utf-8"))
         assert isinstance(y, bytes)
 
+    def test_convert_string_to_bytes(self):
+        str = "Test123"
+        bytesStr = convert_string_to_bytes(str)
+        assert isinstance(bytesStr, bytes)
+        assert bytesStr == b"Test123"
+
+    def test_convert_bytes_to_string(self):
+        bytesStr = b"Test123"
+        string = convert_bytes_to_string(bytesStr)
+        assert isinstance(string, str)
+        assert string == "Test123"
+
+    def test_encode_bytes_string_to_base64(self):
+        bytesStr = b"Test123"
+        bytesEncoded = encode_bytes_string_to_base64(bytesStr)
+        assert bytesEncoded == b"VGVzdDEyMw=="
+        assert isinstance(bytesEncoded, bytes)
+
+    def test_decode_base64_bytes_to_utf8_string(self):
+        encodedBytes = b"VGVzdDEyMw=="
+        decodedBytes = decode_base64_bytes_to_utf8_string(encodedBytes)
+        assert isinstance(decodedBytes, str)
+        assert decodedBytes == "VGVzdDEyMw=="
+
+    def test_return_substring_of_string(self):
+        substring = return_substring_of_string(
+            str="10101000010100010000111", leftBound=2, rightBound=5
+        )
+        assert substring == "1010"
+        assert isinstance(substring, str)
+
+    def test_convert_string_to_integer(self):
+        integer = convert_string_to_integer("110")
+        assert integer == 6
+        assert isinstance(integer, int)
+
+    def test_convert_integer_to_string(self):
+        string = convert_integer_to_string(6)
+        assert string == "110"
+        assert isinstance(string, str)
+
 
 class TestAssociated_Data_Hash:
     def test_hash_when_A_is_null(self):
