@@ -14,7 +14,5 @@ def main():
     logger.create_log(INFO, "OCB Authenticated Encryption script has started.")
 
 
-
-
 if __name__ == "__main__":
     main()
