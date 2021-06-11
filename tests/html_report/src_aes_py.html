@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for src/aes.py: 82%</title>
+    <title>Coverage for src/aes.py: 92%</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -18,12 +18,12 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>src/aes.py</b> :
-            <span class="pc_cov">82%</span>
+            <span class="pc_cov">92%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
-            11 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">9 run</button>
+            24 statements &nbsp;
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">22 run</button>
             <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">2 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
@@ -56,48 +56,55 @@
     <p id="t2" class="run"><span class="n"><a href="#t2">2</a></span><span class="t"><span class="key">from</span> <span class="nam">Crypto</span> <span class="key">import</span> <span class="nam">Random</span>&nbsp;</span><span class="r"></span></p>
     <p id="t3" class="pln"><span class="n"><a href="#t3">3</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t4" class="pln"><span class="n"><a href="#t4">4</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t5" class="run"><span class="n"><a href="#t5">5</a></span><span class="t"><span class="key">def</span> <span class="nam">encryptDataAES128</span><span class="op">(</span><span class="nam">data</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t6" class="run"><span class="n"><a href="#t6">6</a></span><span class="t">    <span class="nam">key</span> <span class="op">=</span> <span class="nam">Random</span><span class="op">.</span><span class="nam">get_random_bytes</span><span class="op">(</span><span class="num">16</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t7" class="run"><span class="n"><a href="#t7">7</a></span><span class="t">    <span class="nam">cipher</span> <span class="op">=</span> <span class="nam">AES</span><span class="op">.</span><span class="nam">new</span><span class="op">(</span><span class="nam">key</span><span class="op">,</span> <span class="nam">AES</span><span class="op">.</span><span class="nam">MODE_CBC</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t8" class="run"><span class="n"><a href="#t8">8</a></span><span class="t">    <span class="nam">ciphertext</span> <span class="op">=</span> <span class="nam">cipher</span><span class="op">.</span><span class="nam">encrypt</span><span class="op">(</span><span class="nam">data</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t9" class="run"><span class="n"><a href="#t9">9</a></span><span class="t">    <span class="key">return</span> <span class="nam">ciphertext</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t10" class="pln"><span class="n"><a href="#t10">10</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t11" class="pln"><span class="n"><a href="#t11">11</a></span><span class="t">    <span class="com"># 128 dlugosci: key = b"Sixteen byte keySixteen byte keySixteen byte keySixteen byte keySixteen byte keySixteen byte keySixteen byte keySixteen byte key"</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t12" class="pln"><span class="n"><a href="#t12">12</a></span><span class="t">    <span class="com"># keyBytes = bytearray(key)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t13" class="pln"><span class="n"><a href="#t13">13</a></span><span class="t">    <span class="com"># print(type(key))</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t14" class="pln"><span class="n"><a href="#t14">14</a></span><span class="t">    <span class="com"># key = b"Sixteen byte key"</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t15" class="pln"><span class="n"><a href="#t15">15</a></span><span class="t">    <span class="com"># print(len(key))</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t16" class="pln"><span class="n"><a href="#t16">16</a></span><span class="t">    <span class="com"># cipher = AES.new(key, MODE_CBC)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t17" class="pln"><span class="n"><a href="#t17">17</a></span><span class="t">    <span class="com"># ciphertext = cipher.encrypt(b"wiadomosc")</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t18" class="pln"><span class="n"><a href="#t18">18</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t19" class="pln"><span class="n"><a href="#t19">19</a></span><span class="t">    <span class="com"># cipher = AES.new(key, MODE_CBC)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t20" class="pln"><span class="n"><a href="#t20">20</a></span><span class="t">    <span class="com"># ciphertext = cipher.encrypt(b"to jest wiadomosc do zaszyfrowania")</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t21" class="pln"><span class="n"><a href="#t21">21</a></span><span class="t">    <span class="com"># print(key)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t22" class="pln"><span class="n"><a href="#t22">22</a></span><span class="t">    <span class="com"># print(ciphertext)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t23" class="pln"><span class="n"><a href="#t23">23</a></span><span class="t">    <span class="com"># cipher = AES.new()</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t24" class="pln"><span class="n"><a href="#t24">24</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t25" class="pln"><span class="n"><a href="#t25">25</a></span><span class="t">    <span class="com"># data = b"to sa dane do zaszyfrowania"</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t26" class="pln"><span class="n"><a href="#t26">26</a></span><span class="t">    <span class="com"># ciphertext, tag = cipher.encrypt_and_digest(data)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t27" class="pln"><span class="n"><a href="#t27">27</a></span><span class="t">    <span class="com"># print("Nonce: ")</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t28" class="pln"><span class="n"><a href="#t28">28</a></span><span class="t">    <span class="com"># print(nonce)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t29" class="pln"><span class="n"><a href="#t29">29</a></span><span class="t">    <span class="com"># print("ciphertext: ")</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t30" class="pln"><span class="n"><a href="#t30">30</a></span><span class="t">    <span class="com"># print(ciphertext)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t31" class="pln"><span class="n"><a href="#t31">31</a></span><span class="t">    <span class="com"># print("tag: ")</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t32" class="pln"><span class="n"><a href="#t32">32</a></span><span class="t">    <span class="com"># print(tag)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t33" class="pln"><span class="n"><a href="#t33">33</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t34" class="pln"><span class="n"><a href="#t34">34</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t35" class="run"><span class="n"><a href="#t35">35</a></span><span class="t"><span class="key">def</span> <span class="nam">main</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t36" class="mis show_mis"><span class="n"><a href="#t36">36</a></span><span class="t">    <span class="key">pass</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t37" class="pln"><span class="n"><a href="#t37">37</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t38" class="pln"><span class="n"><a href="#t38">38</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t39" class="run"><span class="n"><a href="#t39">39</a></span><span class="t"><span class="key">if</span> <span class="nam">__name__</span> <span class="op">==</span> <span class="str">"__main__"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t40" class="mis show_mis"><span class="n"><a href="#t40">40</a></span><span class="t">    <span class="nam">main</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t5" class="run"><span class="n"><a href="#t5">5</a></span><span class="t"><span class="key">import</span> <span class="nam">base64</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t6" class="run"><span class="n"><a href="#t6">6</a></span><span class="t"><span class="key">from</span> <span class="nam">Crypto</span><span class="op">.</span><span class="nam">Cipher</span> <span class="key">import</span> <span class="nam">AES</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t7" class="pln"><span class="n"><a href="#t7">7</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t8" class="run"><span class="n"><a href="#t8">8</a></span><span class="t"><span class="nam">BS</span> <span class="op">=</span> <span class="num">16</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t9" class="run"><span class="n"><a href="#t9">9</a></span><span class="t"><span class="nam">pad</span> <span class="op">=</span> <span class="key">lambda</span> <span class="nam">s</span><span class="op">:</span> <span class="nam">bytes</span><span class="op">(</span><span class="nam">s</span> <span class="op">+</span> <span class="op">(</span><span class="nam">BS</span> <span class="op">-</span> <span class="nam">len</span><span class="op">(</span><span class="nam">s</span><span class="op">)</span> <span class="op">%</span> <span class="nam">BS</span><span class="op">)</span> <span class="op">*</span> <span class="nam">chr</span><span class="op">(</span><span class="nam">BS</span> <span class="op">-</span> <span class="nam">len</span><span class="op">(</span><span class="nam">s</span><span class="op">)</span> <span class="op">%</span> <span class="nam">BS</span><span class="op">)</span><span class="op">,</span> <span class="str">"utf-8"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t10" class="run"><span class="n"><a href="#t10">10</a></span><span class="t"><span class="nam">unpad</span> <span class="op">=</span> <span class="key">lambda</span> <span class="nam">s</span><span class="op">:</span> <span class="nam">s</span><span class="op">[</span><span class="num">0</span> <span class="op">:</span> <span class="op">-</span><span class="nam">ord</span><span class="op">(</span><span class="nam">s</span><span class="op">[</span><span class="op">-</span><span class="num">1</span><span class="op">:</span><span class="op">]</span><span class="op">)</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t11" class="pln"><span class="n"><a href="#t11">11</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t12" class="pln"><span class="n"><a href="#t12">12</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t13" class="run"><span class="n"><a href="#t13">13</a></span><span class="t"><span class="key">class</span> <span class="nam">AESCipher</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t14" class="run"><span class="n"><a href="#t14">14</a></span><span class="t">    <span class="key">def</span> <span class="nam">__init__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">key</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t15" class="run"><span class="n"><a href="#t15">15</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">key</span> <span class="op">=</span> <span class="nam">bytes</span><span class="op">(</span><span class="nam">key</span><span class="op">,</span> <span class="str">"utf-8"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t16" class="pln"><span class="n"><a href="#t16">16</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t17" class="run"><span class="n"><a href="#t17">17</a></span><span class="t">    <span class="key">def</span> <span class="nam">encrypt</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">raw</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t18" class="run"><span class="n"><a href="#t18">18</a></span><span class="t">        <span class="nam">raw</span> <span class="op">=</span> <span class="nam">pad</span><span class="op">(</span><span class="nam">raw</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t19" class="run"><span class="n"><a href="#t19">19</a></span><span class="t">        <span class="nam">iv</span> <span class="op">=</span> <span class="str">"2e4GH7&amp;1C5$$jlpI"</span><span class="op">.</span><span class="nam">encode</span><span class="op">(</span><span class="str">"utf-8"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t20" class="run"><span class="n"><a href="#t20">20</a></span><span class="t">        <span class="nam">cipher</span> <span class="op">=</span> <span class="nam">AES</span><span class="op">.</span><span class="nam">new</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">key</span><span class="op">,</span> <span class="nam">AES</span><span class="op">.</span><span class="nam">MODE_CBC</span><span class="op">,</span> <span class="nam">iv</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t21" class="run"><span class="n"><a href="#t21">21</a></span><span class="t">        <span class="key">return</span> <span class="nam">base64</span><span class="op">.</span><span class="nam">b64encode</span><span class="op">(</span><span class="nam">cipher</span><span class="op">.</span><span class="nam">encrypt</span><span class="op">(</span><span class="nam">raw</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t22" class="pln"><span class="n"><a href="#t22">22</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t23" class="run"><span class="n"><a href="#t23">23</a></span><span class="t">    <span class="key">def</span> <span class="nam">decrypt</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">enc</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t24" class="run"><span class="n"><a href="#t24">24</a></span><span class="t">        <span class="nam">iv</span> <span class="op">=</span> <span class="str">"2e4GH7&amp;1C5$$jlpI"</span><span class="op">.</span><span class="nam">encode</span><span class="op">(</span><span class="str">"utf-8"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t25" class="run"><span class="n"><a href="#t25">25</a></span><span class="t">        <span class="nam">enc</span> <span class="op">=</span> <span class="nam">base64</span><span class="op">.</span><span class="nam">b64decode</span><span class="op">(</span><span class="nam">enc</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t26" class="run"><span class="n"><a href="#t26">26</a></span><span class="t">        <span class="nam">cipher</span> <span class="op">=</span> <span class="nam">AES</span><span class="op">.</span><span class="nam">new</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">key</span><span class="op">,</span> <span class="nam">AES</span><span class="op">.</span><span class="nam">MODE_CBC</span><span class="op">,</span> <span class="nam">iv</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t27" class="run"><span class="n"><a href="#t27">27</a></span><span class="t">        <span class="key">return</span> <span class="nam">unpad</span><span class="op">(</span><span class="nam">cipher</span><span class="op">.</span><span class="nam">decrypt</span><span class="op">(</span><span class="nam">enc</span><span class="op">)</span><span class="op">)</span><span class="op">.</span><span class="nam">decode</span><span class="op">(</span><span class="str">"utf8"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t28" class="pln"><span class="n"><a href="#t28">28</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t29" class="pln"><span class="n"><a href="#t29">29</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t30" class="pln"><span class="n"><a href="#t30">30</a></span><span class="t"><span class="com"># def encryptDataAES128(data):</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t31" class="pln"><span class="n"><a href="#t31">31</a></span><span class="t"><span class="com">#     key = Random.get_random_bytes(16)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t32" class="pln"><span class="n"><a href="#t32">32</a></span><span class="t"><span class="com">#     cipher = AES.new(key, AES.MODE_CBC)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t33" class="pln"><span class="n"><a href="#t33">33</a></span><span class="t"><span class="com">#     ciphertext = cipher.encrypt(data)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t34" class="pln"><span class="n"><a href="#t34">34</a></span><span class="t"><span class="com">#     return ciphertext, key</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t35" class="pln"><span class="n"><a href="#t35">35</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t36" class="pln"><span class="n"><a href="#t36">36</a></span><span class="t"><span class="com"># def decryptDataAES128(ciphertext, key):</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t37" class="pln"><span class="n"><a href="#t37">37</a></span><span class="t"><span class="com">#     cipher = AES.new(key, AES.MODE_CBC)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t38" class="pln"><span class="n"><a href="#t38">38</a></span><span class="t"><span class="com">#     data = cipher.decrypt(ciphertext)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t39" class="pln"><span class="n"><a href="#t39">39</a></span><span class="t"><span class="com">#     return data</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t40" class="pln"><span class="n"><a href="#t40">40</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t41" class="pln"><span class="n"><a href="#t41">41</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t42" class="run"><span class="n"><a href="#t42">42</a></span><span class="t"><span class="key">def</span> <span class="nam">main</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t43" class="mis show_mis"><span class="n"><a href="#t43">43</a></span><span class="t">    <span class="key">raise</span> <span class="nam">NotImplementedError</span><span class="op">(</span><span class="str">"Not implemented yet. Use as package."</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t44" class="pln"><span class="n"><a href="#t44">44</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t45" class="pln"><span class="n"><a href="#t45">45</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t46" class="run"><span class="n"><a href="#t46">46</a></span><span class="t"><span class="key">if</span> <span class="nam">__name__</span> <span class="op">==</span> <span class="str">"__main__"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t47" class="mis show_mis"><span class="n"><a href="#t47">47</a></span><span class="t">    <span class="nam">main</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.5</a>,
-            created at 2021-06-10 13:01 +0200
+            created at 2021-06-11 09:06 +0200
         </p>
     </div>
 </div>

@@ -1,4 +1,4 @@
-from src.aes import encryptDataAES128
+from src.aes import *
 import pytest
 
 from src.associated_data_hash import *
@@ -21,17 +21,21 @@ class TestAssociated_Data_Hash:
 
 
 class TestAES:
-    def test_AES128_when_data_is_too_long(self):
-        with pytest.raises(ValueError) as valError:
-            encryptDataAES128(data=b"Message that exceeds 16 bytes length")
-            assert "16 byte boundary" in str(valError.value)
+    # def test_AES128_when_data_is_too_long(self):
+    #     with pytest.raises(ValueError) as valError:
+    #         encryptDataAES128(data=b"Message that exceeds 16 bytes length")
+    #         assert "16 byte boundary" in str(valError.value)
 
     def test_AES128_when_data_is_valid(self):
-        encryptedMessageOne = encryptDataAES128(data=b"Sixteen bytedata")
-        encryptedMessageTwo = encryptDataAES128(data=b"Sixteen bytedata")
-        assert len(encryptedMessageOne) == 16
-        assert type(encryptedMessageOne) == type(b"Bytes")
-        assert encryptedMessageTwo != encryptedMessageOne
+        # AES encryption routine example
+        messageToEncrypt = "#test@12345"
+        cipher = AESCipher("enIntVecTest2021")
+        encrypted = cipher.encrypt(messageToEncrypt)
+        encryptedString = encrypted.decode("utf-8")
+        decrypted = cipher.decrypt(encrypted)
+        assert decrypted == messageToEncrypt
+        assert messageToEncrypt != encryptedString
+        
 
     # def test_one(self):
     #     x = "this"
