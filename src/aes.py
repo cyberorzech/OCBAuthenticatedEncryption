@@ -16,12 +16,12 @@ class AESCipher:
 
     def encrypt(self, raw):
         raw = pad(raw)
-        iv = "encryptionIntVec".encode("utf-8")
+        iv = "2e4GH7&1C5$$jlpI".encode("utf-8")
         cipher = AES.new(self.key, AES.MODE_CBC, iv)
         return base64.b64encode(cipher.encrypt(raw))
 
     def decrypt(self, enc):
-        iv = "encryptionIntVec".encode("utf-8")
+        iv = "2e4GH7&1C5$$jlpI".encode("utf-8")
         enc = base64.b64decode(enc)
         cipher = AES.new(self.key, AES.MODE_CBC, iv)
         return unpad(cipher.decrypt(enc)).decode("utf8")

@@ -13,13 +13,6 @@ def main():
     logger = Logger()
     logger.create_log(INFO, "OCB Authenticated Encryption script has started.")
 
-    # AES encryption routine example
-    cipher = AESCipher("enIntVecTest2021")
-    encrypted = cipher.encrypt("#test@12345")
-    print(encrypted.decode("utf-8"))
-    decrypted = cipher.decrypt(encrypted)
-    print(decrypted)
-
 
 if __name__ == "__main__":
     main()
