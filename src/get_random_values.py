@@ -1,4 +1,6 @@
 import uuid
+import string
+import random
 
 # Input: none  Output: string containing random binary values
 def key_gen():
@@ -10,6 +12,17 @@ def key_gen():
         else:
             randomKey += "0"
     return randomKey
+
+
+# Input: none Output: string containing random upper/lower case letters, numbers and special chars
+def key_gen_str(
+    size=16,
+    chars=string.ascii_uppercase
+    + string.ascii_lowercase
+    + string.punctuation
+    + string.digits,
+):
+    return "".join(random.choice(chars) for _ in range(size))
 
 
 def get_random_normalized_int128():
