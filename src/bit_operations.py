@@ -37,6 +37,16 @@ def strxor(s, t):
     return "".join(chr(ord(a) ^ ord(b)) for a, b in zip(s, t))
 
 
+def xor_of_two_128_bit_strings(left, right):
+    result = str()
+    for x in range(0, 128):
+        if left[x] == right[x]:
+            result += "0"
+        else:
+            result += "1"
+    return result
+
+
 def bytes_xor(a, b):
     return bytes(x ^ y for x, y in zip(a, b))
 
@@ -70,6 +80,34 @@ def convert_string_to_integer(str):
 
 def convert_integer_to_string(integer):
     return bin(integer)[2:]
+
+
+def double(string):
+    # double(S) == (S[2..128] || 0) xor (zeros(120) || 10000111)
+    STRING_LENGTH = 128
+    FIRST_ELEMENT = 0
+    PADDING = "10000111"
+    if len(string) != STRING_LENGTH:
+        raise ValueError("String of bits must have an exact length of 128.")
+    for x in range(FIRST_ELEMENT, STRING_LENGTH):
+        if string[x] != "0" and string[x] != "1":
+            raise ValueError("String of bits contains non binary values.")
+    if string[FIRST_ELEMENT] == "0":
+        return concatenate_string_and_zero(string)
+    if string[FIRST_ELEMENT] == "1":
+        leftXORElement = concatenate_string_and_zero(string)
+        rightXORElement = zeros(120) + PADDING
+        return xor_of_two_128_bit_strings(leftXORElement, rightXORElement)
+
+
+def concatenate_string_and_zero(string):
+    STRING_LENGTH = 128
+    FIRST_ELEMENT = 0
+    result = str()
+    for x in range(FIRST_ELEMENT + 1, STRING_LENGTH):
+        result += string[x]
+    result += "0"
+    return result
 
 
 def main():
