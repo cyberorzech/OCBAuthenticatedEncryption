@@ -135,6 +135,11 @@ class TestAssociated_Data_Hash:
         assert hash(K, A) == BitArray(bin=zeros128)
         assert hash(K, A) != BitArray(bin=ones128)
 
+    def test_hash_when_A_contain_data(self):
+        K = BitArray(
+            bin="1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100"
+        )
+
 
 class TestAES:
     def test_AES128_when_data_is_valid(self):

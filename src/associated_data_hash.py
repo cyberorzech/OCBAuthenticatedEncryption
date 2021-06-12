@@ -1,4 +1,5 @@
 from bitstring import BitStream, BitArray
+from src.bit_operations import *
 
 # Inputs: K - string of KEYLEN bits (key), A - string of any length (associated data)
 def hash(K, A):
