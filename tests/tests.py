@@ -19,6 +19,9 @@ class TestBit_Operations:
             assert x[i] == "0"
 
     def test_ntz(self):
+        with pytest.raises(ValueError) as valinfo:
+            ntz(0)
+        assert "n argument must not be less than 1" in str(valinfo.value)
         assert ntz(128) == 7
         assert ntz(256) != 7
 
@@ -72,6 +75,38 @@ class TestBit_Operations:
         string = convert_integer_to_string(6)
         assert string == "110"
         assert isinstance(string, str)
+
+    def test_double_if_string_is_too_short(self):
+        with pytest.raises(ValueError) as valinfo:
+            double("010010001010001111010100111")
+        assert "String of bits must have an exact length of 128" in str(valinfo.value)
+
+    def test_double_if_string_contains_non_binary_chars(self):
+        with pytest.raises(ValueError) as valinfo:
+            string = str()
+            for x in range(0, 127):
+                if x % 2 == 0:
+                    string += "0"
+                else:
+                    string += "1"
+            string += "z"
+            double(string)
+        assert "String of bits contains non binary values." in str(valinfo.value)
+
+    def test_double_if_string_starts_with_0(self):
+        string = "0"
+        for x in range(1, 128):
+            string += "1"
+        result = double(string)
+        for x in range(0, 127):
+            assert result[x] == string[x + 1]
+        assert result[127] == "0"
+        stringInt = convert_string_to_integer(string)
+        resultInt = convert_string_to_integer(result)
+        assert stringInt * 2 == resultInt
+
+    def test_double_if_string_starts_with_1(self):
+        pass
 
 
 class TestAssociated_Data_Hash:

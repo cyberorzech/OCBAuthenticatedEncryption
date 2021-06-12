@@ -72,6 +72,24 @@ def convert_integer_to_string(integer):
     return bin(integer)[2:]
 
 
+def double(string):
+    STRING_LENGTH = 128
+    FIRST_ELEMENT = 0
+    if len(string) != STRING_LENGTH:
+        raise ValueError("String of bits must have an exact length of 128.")
+    for x in range(FIRST_ELEMENT, STRING_LENGTH):
+        if string[x] != "0" and string[x] != "1":
+            raise ValueError("String of bits contains non binary values.")
+    if string[FIRST_ELEMENT] == "0":
+        result = str()
+        for x in range(FIRST_ELEMENT + 1, STRING_LENGTH):
+            result += string[x]
+        result += "0"
+        return result
+    if string[FIRST_ELEMENT] == "1":
+        pass
+
+
 def main():
     raise NotImplementedError("Not implemented yet. Use as package.")
 
