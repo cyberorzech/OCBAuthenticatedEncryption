@@ -2,6 +2,7 @@ import codecs
 import base64
 
 
+# Input: integer    Output: string filled with zeros
 def zeros(n):
     if n < 1:
         raise ValueError("bit_operations: zeros: n argument must be greater than 0.")
@@ -11,6 +12,7 @@ def zeros(n):
     return result
 
 
+# Input: integer    Output: integer (the biggest x that returns integer for n/2**x)
 def ntz(n):
     if n < 1:
         raise ValueError("bit_operations: ntz: n argument must not be less than 1. ")
@@ -19,6 +21,7 @@ def ntz(n):
     return x
 
 
+# Input: integer, integer   Output: integer
 def power(n, x):
     currentDivRes = n / 2 ** x
     if currentDivRes.is_integer():
@@ -28,6 +31,7 @@ def power(n, x):
     return result
 
 
+# Input: string, string     Output: string (\x12-like values)
 def strxor(s, t):
     # convert strings to a list of character pair tuples
     # go through each tuple, converting them to ASCII code (ord)
@@ -37,6 +41,7 @@ def strxor(s, t):
     return "".join(chr(ord(a) ^ ord(b)) for a, b in zip(s, t))
 
 
+# Input: string, string     Output: string
 def xor_of_two_128_bit_strings(left, right):
     result = str()
     for x in range(0, 128):
@@ -47,6 +52,7 @@ def xor_of_two_128_bit_strings(left, right):
     return result
 
 
+# Input: bytes, bytes   Output: bytes
 def bytes_xor(a, b):
     return bytes(x ^ y for x, y in zip(a, b))
 
