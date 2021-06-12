@@ -1,3 +1,4 @@
+from bitstring import INIT_NAMES
 from src.aes import *
 from src.bit_operations import *
 from src.get_random_values import *
@@ -123,12 +124,39 @@ class TestBit_Operations:
 
 class TestAssociated_Data_Hash:
     def test_hash_when_A_is_null(self):
-        K = key_gen()
+        K = key_gen_str()
         A = str()
         assert hash(K, A) == zeros(128)
 
-    def test_hash_when_A_contain_data(self):
-        pass
+    def test_hash_when_A_contain_3x128_bits(self):
+        K = key_gen_str()
+        A = str()
+        for x in range(0, 3):
+            A += key_gen()
+        result = hash(K, A)
+        assert isinstance(result, list)
+        assert len(result) == 3
+        for x in range(0, 3):
+            assert len(result[x]) == 128
+
+    def test_hash_when_A_contain_less_than_128_bits(self):
+        K = key_gen_str()
+        A = "10010101110110110001"
+        result = hash(K, A)
+        assert isinstance(result, list)
+        assert len(result) == 1
+
+    def test_hash_when_A_contain_more_than_3x128_bits(self):
+        K = key_gen_str()
+        A = str()
+        rest = "100001010011110101100"
+        for x in range(0, 3):
+            A += key_gen()
+        A += rest
+        result = hash(K, A)
+        assert isinstance(result, list)
+        assert len(result) == 4
+        assert result[3] == rest
 
 
 class TestAES:

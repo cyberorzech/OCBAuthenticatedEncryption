@@ -4,6 +4,7 @@ from src.logger import *
 from src.associated_data_hash import *
 from src.aes import *
 from src.bit_operations import *
+from src.get_random_values import *
 
 DEBUG = 10
 INFO = 20
