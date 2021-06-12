@@ -106,7 +106,18 @@ class TestBit_Operations:
         assert stringInt * 2 == resultInt
 
     def test_double_if_string_starts_with_1(self):
-        pass
+        string = "1"
+        for x in range(1, 128):
+            string += "0"
+        # left, right = double(string)      tests for xor
+        # assert len(left) == 128 == len(right)
+        # assert left[127] == "0" == right[119]
+        # assert return_substring_of_string(right, 120, 127) == "10000111"
+        result = double(string)
+        assert isinstance(result, str)
+        assert convert_string_to_integer(string) != convert_string_to_integer(
+            result
+        )  # check if this case is implemented correctly (TODO)
 
 
 class TestAssociated_Data_Hash:
