@@ -7,6 +7,7 @@ def hash(K, A):
         return BitArray(
             bin="0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000"
         )
+    # chyba trzeba zmienic A na string zwykly, a K generowac losowo i automatycznie
 
 
 def main():
