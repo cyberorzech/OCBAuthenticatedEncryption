@@ -146,7 +146,7 @@ class TestAES:
     def test_AES128_when_data_is_valid(self):
         # AES encryption routine example
         messageToEncrypt = "#test@12345"
-        cipher = AESCipher("enIntVecTest2021")
+        cipher = AESCipher(key_gen_str())
         encrypted = cipher.encrypt(messageToEncrypt)
         encryptedString = encrypted.decode("utf-8")
         decrypted = cipher.decrypt(encrypted)
@@ -174,3 +174,8 @@ class TestGet_Random_Values:
         assert isinstance(randomKey, str)
         for x in range(0, 128):
             assert randomKey[x] == "0" or randomKey[x] == "1"
+
+    def test_key_gen_str(self):
+        randomKey = key_gen_str()
+        assert len(randomKey) == 16
+        assert isinstance(randomKey, str)
