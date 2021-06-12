@@ -123,20 +123,9 @@ class TestBit_Operations:
 
 class TestAssociated_Data_Hash:
     def test_hash_when_A_is_null(self):
-        pass
-
-        # K = BitArray(
-        #     bin="1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100 1101 0011 0000 1100"
-        # )
-        # A = BitArray(bin="")
-        # zeros128 = str()
-        # ones128 = str()
-        # for i in range(0, 128):
-        #     zeros128 += "0"
-        # for i in range(0, 128):
-        #     ones128 += "1"
-        # assert hash(K, A) == BitArray(bin=zeros128)
-        # assert hash(K, A) != BitArray(bin=ones128)
+        K = key_gen()
+        A = str()
+        assert hash(K, A) == zeros(128)
 
     def test_hash_when_A_contain_data(self):
         pass
